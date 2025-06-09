@@ -176,19 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
-   * Add parallax effect to hero section
-   */
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroElements = document.querySelectorAll('.about-top .logo-container, .about-top .phone-mockup');
-    
-    heroElements.forEach((element, index) => {
-      const speed = 0.5 + (index * 0.1);
-      element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-  });
-
-  /**
    * Add intersection observer for animations
    */
   const observerOptions = {
