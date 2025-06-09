@@ -32,15 +32,13 @@
   <div class="container d-flex align-items-center justify-content-between">
     <div id="logo">
       <a href="#"><img src="assets/img/logo.png" alt="Mijotons Logo"></a>
-    </div>
-
-    <!-- Navigation -->
+    </div>    <!-- Navigation -->
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto" href="#a-propos">À propos</a></li>
-        <li><a class="nav-link scrollto" href="#features">Fonctionnalités</a></li>
-        <li><a class="nav-link scrollto" href="#technologies">Technologies</a></li>
-        <li><a class="nav-link scrollto" href="#screenshots">Maquettes</a></li>
+        <li><a class="nav-link scrollto" href="#a-propos"><i class="bi bi-info-circle"></i> À propos</a></li>
+        <li><a class="nav-link scrollto" href="#features"><i class="bi bi-star"></i> Fonctionnalités</a></li>
+        <li><a class="nav-link scrollto" href="#technologies"><i class="bi bi-gear"></i> Technologies</a></li>
+        <li><a class="nav-link scrollto" href="#screenshots"><i class="bi bi-images"></i> Maquettes</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
@@ -55,19 +53,27 @@
         <h1>Bienvenue sur le site vitrine de l'application Mijotons</h1>
         <h2>L'application qui allie écologie et économie !</h2>
       </div>
-    </div>
-
-    <div class="row justify-content-center">
+    </div>    <div class="row justify-content-center">
       <div class="col-md-4 col-lg-3 text-center">
-        <img src="assets/img/logoEcriture.png" alt="Mijotons Logo" class="img-fluid" data-aos="zoom-out" data-aos-delay="100">
-        <p>Mijotons est une application Android gratuite que nous avons dans un premier temps, choisi de développer afin d'aider les étudiants de l'université à s'organiser plus facilement pour la gestion de leur repas.</p>
-        <a href="assets/file/com.mijotons.apk" class="btn-get-started scrollto">Télécharger</a>
+        <div class="logo-container" data-aos="zoom-out" data-aos-delay="100">
+          <img src="assets/img/logoEcriture.png" alt="Mijotons Logo" class="img-fluid main-logo">
+        </div>
+        <p class="app-description">Mijotons est une application Android gratuite que nous avons dans un premier temps, choisi de développer afin d'aider les étudiants de l'université à s'organiser plus facilement pour la gestion de leur repas.</p>
+        <a href="assets/file/com.mijotons.apk" class="btn-get-started scrollto">
+          <i class="bi bi-download"></i>
+          Télécharger
+        </a>
       </div>
 
       <div class="col-md-4 col-lg-3 text-center">
         <div class="d-flex flex-column align-items-center">
-          <img src="assets/img/chargement.PNG" alt="Écran de chargement" class="img-fluid app-preview" data-aos="zoom-out" data-aos-delay="100">
-          <a href="assets/file/ManuelsMijotons.pdf" class="btn-get-started scrollto mt-3">Manuels</a>
+          <div class="phone-mockup" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/chargement.PNG" alt="Écran de chargement" class="img-fluid app-preview">
+          </div>
+          <a href="assets/file/ManuelsMijotons.pdf" class="btn-get-started btn-secondary scrollto mt-3">
+            <i class="bi bi-book"></i>
+            Manuels
+          </a>
         </div>
       </div>
     </div>
@@ -88,14 +94,12 @@
         <div class="col-md-7 col-lg-5">
           <div class="about-content" data-aos="fade-left" data-aos-delay="100">
             <h2><span>Mijotons</span>, l'application multifonctionnelle</h2>
-            <p>En alliant l'écologie et l'économie, notre application vous permet de cuisiner à partir des ingrédients que vous avez dans vos placards. Mais ce n'est pas tout !</p>
-
-            <ul class="list-unstyled feature-list">
-              <li><i class="bi bi-chevron-right"></i>Affichage de recette en fonction des ingrédients sélectionnés</li>
-              <li><i class="bi bi-chevron-right"></i>Mise en favoris de recettes</li>
-              <li><i class="bi bi-chevron-right"></i>Consultation d'historique</li>
-              <li><i class="bi bi-chevron-right"></i>Gestion de liste de courses</li>
-              <li><i class="bi bi-chevron-right"></i>Recherche de restaurants à proximité</li>
+            <p>En alliant l'écologie et l'économie, notre application vous permet de cuisiner à partir des ingrédients que vous avez dans vos placards. Mais ce n'est pas tout !</p>            <ul class="list-unstyled feature-list">
+              <li><i class="bi bi-search"></i>Affichage de recette en fonction des ingrédients sélectionnés</li>
+              <li><i class="bi bi-heart"></i>Mise en favoris de recettes</li>
+              <li><i class="bi bi-clock-history"></i>Consultation d'historique</li>
+              <li><i class="bi bi-cart"></i>Gestion de liste de courses</li>
+              <li><i class="bi bi-geo-alt"></i>Recherche de restaurants à proximité</li>
             </ul>
           </div>
         </div>
@@ -112,9 +116,9 @@
         <p>Voici la liste exhaustive de l'ensemble des fonctionnalités que nous avons utilisées pour produire notre application.</p>
       </div>
 
-      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-md-6 col-lg-3 mb-4">
-          <div class="feature-block">
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="feature-block" data-aos="fade-up" data-aos-delay="100">
+            <div class="tech-badge">Conception</div>
             <img src="assets/img/logo_techno/logo-modelio.png" alt="Modelio" class="img-fluid tech-logo">
             <h4>Modelio</h4>
             <p>Logiciel qui nous a permis de faire toute la conception de notre application.</p>
@@ -122,7 +126,8 @@
         </div>
 
         <div class="col-md-6 col-lg-3 mb-4">
-          <div class="feature-block">
+          <div class="feature-block" data-aos="fade-up" data-aos-delay="200">
+            <div class="tech-badge">Planification</div>
             <img src="assets/img/logo_techno/logo-gantt.png" alt="Gantt" class="img-fluid tech-logo">
             <h4>Gantt</h4>
             <p>Logiciel qui nous a permis d'organiser et dater les tâches de notre projet.</p>
@@ -130,7 +135,8 @@
         </div>
 
         <div class="col-md-6 col-lg-3 mb-4">
-          <div class="feature-block">
+          <div class="feature-block" data-aos="fade-up" data-aos-delay="300">
+            <div class="tech-badge">Prototypage</div>
             <img src="assets/img/logo_techno/balsamiq-logo.png" alt="Balsamiq" class="img-fluid tech-logo">
             <h4>Balsamiq Wireframes</h4>
             <p>Logiciel qui nous a permis de réaliser les maquettes et prototypes de notre appli.</p>
@@ -138,7 +144,8 @@
         </div>
 
         <div class="col-md-6 col-lg-3 mb-4">
-          <div class="feature-block">
+          <div class="feature-block" data-aos="fade-up" data-aos-delay="400">
+            <div class="tech-badge">Versionning</div>
             <img src="assets/img/logo_techno/github-logo.png" alt="Github" class="img-fluid tech-logo">
             <h4>Github & Git</h4>
             <p>Logiciel qui nous a permis de gérer le travail à plusieurs, le versionning et le stockage de notre projet.</p>
@@ -146,7 +153,8 @@
         </div>
 
         <div class="col-md-6 col-lg-3 mb-4">
-          <div class="feature-block">
+          <div class="feature-block" data-aos="fade-up" data-aos-delay="500">
+            <div class="tech-badge">Développement</div>
             <img src="assets/img/logo_techno/android-studio-logo.png" alt="Android Studio" class="img-fluid tech-logo">
             <h4>Android Studio</h4>
             <p>IDE qui nous a permis de coder et tester notre application.</p>
@@ -154,7 +162,8 @@
         </div>
 
         <div class="col-md-6 col-lg-3 mb-4">
-          <div class="feature-block">
+          <div class="feature-block" data-aos="fade-up" data-aos-delay="600">
+            <div class="tech-badge">API</div>
             <img src="assets/img/logo_techno/npoint-logo.PNG" alt="Npoint" class="img-fluid tech-logo">
             <h4>Npoint.io</h4>
             <p>Webservice qui nous a permis de produire facilement nos API à partir de JSON.</p>
