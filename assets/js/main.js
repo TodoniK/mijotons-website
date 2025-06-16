@@ -40,20 +40,66 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function() {
-    select('#navbar ul').classList.toggle('active');
+  on('click', '.mobile-nav-toggle', function(e) {
+    e.stopPropagation();
+    const navbar = select('#navbar ul');
+    navbar.classList.toggle('active');
     this.classList.toggle('bi-list');
     this.classList.toggle('bi-x');
+    
+    // Add body class to prevent scrolling when menu is open
+    if (navbar.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+
+  /**
+   * Close mobile nav when clicking outside
+   */
+  document.addEventListener('click', function(e) {
+    const navbar = select('#navbar ul');
+    const toggle = select('.mobile-nav-toggle');
+    const navbarContainer = select('#navbar');
+    
+    if (navbar.classList.contains('active') && 
+        !navbarContainer.contains(e.target) && 
+        !toggle.contains(e.target)) {
+      navbar.classList.remove('active');
+      toggle.classList.remove('bi-x');
+      toggle.classList.add('bi-list');
+      document.body.style.overflow = '';
+    }
   });
 
   /**
    * Close mobile nav when clicking on a nav item
    */
   on('click', '.navbar .nav-link', function() {
-    select('#navbar ul').classList.remove('active');
-    select('.mobile-nav-toggle').classList.remove('bi-x');
-    select('.mobile-nav-toggle').classList.add('bi-list');
+    const navbar = select('#navbar ul');
+    const toggle = select('.mobile-nav-toggle');
+    
+    navbar.classList.remove('active');
+    toggle.classList.remove('bi-x');
+    toggle.classList.add('bi-list');
+    document.body.style.overflow = '';
   }, true);
+
+  /**
+   * Close mobile nav on window resize
+   */
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 991) {
+      const navbar = select('#navbar ul');
+      const toggle = select('.mobile-nav-toggle');
+      
+      navbar.classList.remove('active');
+      toggle.classList.remove('bi-x');
+      toggle.classList.add('bi-list');
+      document.body.style.overflow = '';
+    }
+  });
 
   /**
    * Back to top button
@@ -206,6 +252,64 @@ document.addEventListener('DOMContentLoaded', () => {
     
     block.addEventListener('mouseleave', function() {
       this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+
+  /**
+   * Navigation active state based on scroll position
+   */
+  function updateActiveNavigation() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar .nav-link[href^="#"]');
+    
+    if (sections.length === 0) return;
+    
+    const scrollPos = window.scrollY + 200; // Offset pour prendre en compte le header
+    
+    // Déterminer quelle section est actuellement visible
+    let currentSection = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        currentSection = sectionId;
+      }
+    });
+    
+    // Mettre à jour les liens de navigation
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      
+      if (href === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  // Exécuter au chargement de la page
+  window.addEventListener('load', updateActiveNavigation);
+  
+  // Exécuter lors du défilement
+  window.addEventListener('scroll', () => {
+    updateActiveNavigation();
+  });
+
+  // Exécuter lors du clic sur un lien de navigation
+  document.querySelectorAll('.navbar .nav-link[href^="#"]').forEach(link => {
+    link.addEventListener('click', function() {
+      // Retirer la classe active de tous les liens
+      document.querySelectorAll('.navbar .nav-link').forEach(l => l.classList.remove('active'));
+      // Ajouter la classe active au lien cliqué
+      this.classList.add('active');
+      
+      // Après l'animation de défilement, mettre à jour l'état
+      setTimeout(() => {
+        updateActiveNavigation();
+      }, 1000);
     });
   });
 });

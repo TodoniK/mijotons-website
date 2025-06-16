@@ -284,6 +284,16 @@ img {
   border-bottom: 1px solid rgba(72, 187, 120, 0.1);
 }
 
+@media (max-width: 991px) {
+  #header {
+    padding: 16px 0;
+  }
+  
+  #header .container {
+    padding: 0 20px;
+  }
+}
+
 #header #logo h1 {
   font-size: 32px;
   margin: 0;
@@ -307,6 +317,12 @@ img {
   max-height: 70px;
   width: auto;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 991px) {
+  #header #logo img {
+    max-height: 50px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -383,7 +399,18 @@ img {
   cursor: pointer;
   display: none;
   line-height: 0;
-  transition: 0.5s;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 8px;
+  background: white;
+  border: 2px solid var(--primary-color);
+  z-index: 1001;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-toggle:hover {
+  color: white;
+  background: var(--primary-color);
 }
 
 @media (max-width: 991px) {
@@ -391,31 +418,64 @@ img {
     display: block;
   }
 
+  .navbar {
+    position: relative;
+    width: 100%;
+  }
+
   .navbar ul {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 12px);
     left: 0;
     right: 0;
-    background: var(--bg-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 12px 0;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    z-index: 1000;
+    border: 2px solid var(--primary-color);
   }
 
   .navbar ul.active {
     display: flex;
   }
 
-  .navbar a, .navbar a:focus {
-    padding: 10px 20px;
-    width: 100%;
+  .navbar li {
+    margin: 0;
+    border-bottom: 1px solid #f0f0f0;
   }
 
-  .navbar {
-    position: relative;
+  .navbar li:last-child {
+    border-bottom: none;
+  }
+
+  .navbar a, .navbar a:focus {
+    padding: 16px 24px;
     width: 100%;
+    margin: 0;
+    border-radius: 0;
+    justify-content: flex-start;
+    background: transparent;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+
+  .navbar a::after {
+    display: none;
+  }
+
+  .navbar a:hover, .navbar .active {
+    background: var(--primary-color);
+    color: white;
+  }
+
+  .navbar a i {
+    margin-right: 12px;
+    font-size: 16px;
   }
 }
 
