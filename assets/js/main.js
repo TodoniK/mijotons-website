@@ -115,6 +115,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     window.addEventListener('load', toggleBacktotop);
     onscroll(document, toggleBacktotop);
+    
+    // Add click event to scroll to top
+    backtotop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
 
   /**
